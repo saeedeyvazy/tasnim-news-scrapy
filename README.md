@@ -1,1 +1,1 @@
-# MashreghScrapy
+# Tasnim News Scrapy
