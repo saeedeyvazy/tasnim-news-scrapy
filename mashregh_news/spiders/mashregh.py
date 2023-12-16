@@ -19,15 +19,14 @@ class MashreghSpider(scrapy.Spider):
             yield response.follow(link, callback=self.parse_fetched_link)
 
     def parse_fetched_link(self, response):
-        text_list = response.css('div.story p::text')
+        text_list = response.selector.xpath('/html/body/div/main/div/section[1]/div/section[1]/article/div[3]/p//text()').getall()
         title = response.css('h1.title::text').get()
         img = response.css('img.img-responsive::attr(src)').get()
 
-        # result = '<strong>&#x1F53A;</strong>' + '،'.join(text_list[1].get().split('،')[1:]) + "\n\n"    
-        result = 'STARTP' + '،'.join(text_list[1].get().split('،')[1:]) + "\n\n"
-        for i in range(2, len(text_list) - 1) :
-            # result += '<strong>&#x1F53A;</strong>' + text_list[i].get() + "\n\n"
-            result += 'STARTP' + text_list[i].get() + "\n\n"
+    
+        result = 'STARTP' + text_list[2].replace('،','',1) + "\n\n"
+        for i in range(3, len(text_list) - 1) :
+            result += 'STARTP' + text_list[i].replace('،','',1) + "\n\n"
 
         yield {'title' : title, 
                'text': result, 

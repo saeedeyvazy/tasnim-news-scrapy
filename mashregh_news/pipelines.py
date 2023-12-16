@@ -2,7 +2,6 @@ import psycopg2
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 from datetime import datetime
-import requests
 import logging
 
 class MashreghNewsPipeline:
