@@ -1,0 +1,10 @@
+mashregh_news/tasnim.log
+mashregh_news/__pycache__/pipelines.cpython-310.pyc
+mashregh_news/crawls/tasnim/requests.queue/active.json
+mashregh_news/spiders/__pycache__/mashregh.cpython-310.pyc
+mashregh_news/__pycache__/settings.cpython-310.pyc
+mashregh_news/__pycache__/pipelines.cpython-310.pyc
+mashregh_news/__pycache__/settings.cpython-310.pyc
+mashregh_news/crawls/tasnim/requests.seen
+mashregh_news/crawls/tasnim/spider.state
+mashregh_news/spiders/__pycache__/mashregh.cpython-310.pyc

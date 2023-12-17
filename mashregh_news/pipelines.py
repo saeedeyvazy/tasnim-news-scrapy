@@ -43,27 +43,3 @@ class DuplicateNewsPipeline:
         else:
             self.seen_url.add(adapter['title'])
             return item
-
-# class SendNewsToEittaChannel:
-#     EITAA_CHANNEL = "https://eitaayar.ir/api/bot214251:acaf875c-c4ec-45a6-8086-b1bbca85cb44/sendFile"
-#     def __init__(self):
-#         pass    
-
-#     def process_item(self, item, spider):
-
-#         params = {
-#             'caption' : '<strong>&#x1F4E2;</strong>' + item['title'] + '\n\n' 
-#             +item['text'],
-#             'date':0,
-#             'chat_id':'news_ruz',
-#             'pin':'off',
-#             'parse_mode':'html',
-#             'file':item['image']
-#         }
-#         try:    
-#             response = requests.post(url=self.EITAA_CHANNEL, params=params)
-#             resp = response.json()
-#             if resp['ok']:
-#                 return item
-#         except Exception as e:
-#             logging.error('Failed to Send News To Eitta Channel: %s', e)
