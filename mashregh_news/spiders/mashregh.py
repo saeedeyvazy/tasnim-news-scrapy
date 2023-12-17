@@ -7,7 +7,7 @@ from scrapy import cmdline
 class MashreghSpider(scrapy.Spider):
     name = "tasnim"
     allowed_domains = ["www.tasnimnews.com"]
-    start_urls = ["https://www.tasnimnews.com/fa/service/1392/%D8%AD%D9%88%D8%A7%D8%AF%D8%AB"]
+    start_urls = ["https://www.tasnimnews.com/","https://www.tasnimnews.com/fa/service/1392/%D8%AD%D9%88%D8%A7%D8%AF%D8%AB"]
 
     def parse(self, response):
         news_list = response.css('article.list-item')
@@ -15,7 +15,6 @@ class MashreghSpider(scrapy.Spider):
         for news in news_list:
             title = news.css('h2.title::text').get()
             link = news.css('a::attr(href)').get()
-            # yield { 'title' : title, 'link' : link }
             yield response.follow(link, callback=self.parse_fetched_link)
 
     def parse_fetched_link(self, response):
